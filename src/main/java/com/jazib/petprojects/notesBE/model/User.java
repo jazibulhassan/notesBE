@@ -2,18 +2,22 @@ package com.jazib.petprojects.notesBE.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
 @Data
-@Document(collection = "notes")
-public class Note {
+@Document(collection = "users")
+public class User {
+
     @Id
     private String id;
-    private String title;
-    private String content;
+    @Indexed(unique = true)
+    private String username;
+    @Indexed(unique = true)
+    private String email;
+    private String password;  // hashed password
     private LocalDateTime createdAt;
 
-    private String userId;  // reference to User.id
 }
