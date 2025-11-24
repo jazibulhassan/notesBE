@@ -19,7 +19,7 @@ public class NoteService {
         return noteRepository.save(note);
     }
 
-    public List<Note> findAll() {
-        return noteRepository.findAll();
+    public List<Note> findAllByUserName(String userName) {
+        return noteRepository.findByUserId(userName);
     }
 }
